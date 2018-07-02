@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+      <Pane fx:id="canvasbg" prefHeight="575.0" prefWidth="785.0" style="-fx-background-image: url('/resources/background.png'); -fx-background-size: cover;">
+         <children>
+             <Canvas fx:id="canvas4" height="575.0" width="785.0" opacity="0.85"/>
+             <Canvas fx:id="canvas3" height="575.0" width="785.0" />
+             <Canvas fx:id="canvas2" height="575.0" width="785.0" />
+             <Canvas fx:id="canvas" height="575.0" width="785.0" />
+            <Label fx:id="lable" prefHeight="275.0" prefWidth="351.0" />
+         </children>
+      </Pane>
+    </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

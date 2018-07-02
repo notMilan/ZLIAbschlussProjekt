@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="anchorpane" prefHeight="575.0" prefWidth="785.0" style="-fx-background-image: url('/resources/background.png'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="OwnLevelCreator.LevelCreatorController">
+   <children>
+      <GridPane fx:id="layoutGridpane" layoutY="50">
+          <gridLinesVisible>true</gridLinesVisible>
+          <columnConstraints>
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+              <ColumnConstraints prefWidth="56.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints prefHeight="56.0" />
+            <RowConstraints prefHeight="56.0" />
+            <RowConstraints prefHeight="56.0" />
+            <RowConstraints prefHeight="56.0" />
+            <RowConstraints prefHeight="56.0" />
+            <RowConstraints prefHeight="56.0" />
+            <RowConstraints prefHeight="56.0" />
+            <RowConstraints prefHeight="56.0" />
+        </rowConstraints>
+      </GridPane>
+      <ScrollPane fx:id="scrollPane" layoutY="500.0" prefHeight="76.0" prefWidth="416.0" style="-fx-background-color:transparent; -fx-background:transparent;">
+         <content>
+            <GridPane fx:id="itemsGridpane" prefHeight="56.0" prefWidth="56.0">
+                <!--<gridLinesVisible>true</gridLinesVisible>-->
+                <rowConstraints>
+                    <RowConstraints prefHeight="56.0" />
+                </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <Button layoutX="685.0" layoutY="517.0" mnemonicParsing="false" onAction="#backAndSave" text="Save and Exit" />
+      <Label layoutX="471.0" layoutY="500.0" prefHeight="17.0" prefWidth="149.0" text="Level-Name" />
+      <TextField fx:id="levelName" layoutX="471.0" layoutY="517.0" />
+      <Label fx:id="errormessage" styleClass="errmsg" layoutX="471.0" layoutY="543.0" prefHeight="25.0" prefWidth="202.0" />
+   </children>
+</AnchorPane>
