@@ -270,7 +270,11 @@ public class LevelCreatorController {
                         }
                         //erstellt ein neues TextFile
                         File source = new File(LevelSelectorController.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-                        dir = new PrintStream(new FileOutputStream(source.getParentFile() + "/allLevel/" + levelName.getText() + ".txt"));
+                        File ownLeveldir = new File(source.getParentFile() + "/allLevel");
+                        if (!ownLeveldir.exists()) {
+                            ownLeveldir.mkdir();
+                        }
+                        dir = new PrintStream(new FileOutputStream(ownLeveldir + "/" + levelName.getText() + ".txt"));
                     }
                 }
                 //wenn man es im Editor ausführt
