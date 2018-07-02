@@ -113,14 +113,14 @@ public class GameController {
 
     //Hier werden die in dem Animation Timer geschriebenen Methoden 60 mal in der Sekunde wiederholt ausgeführt
     public void gameLoop() {
-        new AnimationTimer(){
+        AnimationTimer animationTimer = new AnimationTimer(){
             @Override
             public void handle(long now) {
                 //Ändert das Level wenn man ein eigenes Level spielt
                 level.setOwnLevel(ownLevel);
 
                 //Added Controls für das Bewegen des Main Chars
-                addKeyInput(canvas.getScene());
+                addKeyInput(canvas.getScene(), this);
 
                 //Überprüft ob man in das Portal ist, und wenn ja dann wechselt es das Level
                 if (level.nextLevel()) {
@@ -140,8 +140,21 @@ public class GameController {
                 taskbar.drawHealth();
                 mainChar.redraw();
 //                updateoverview();
+                if (mainChar.getHealth() <= 0) {
+                    this.stop();
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Mainmenu/MainMenu.fxml"));
+                        Stage stage = (Stage) lable.getScene().getWindow();
+                        Scene newScene = new Scene(loader.load());
+                        newScene.getStylesheets().add(getClass().getResource("/resources/css/styles.css").toExternalForm());
+                        stage.setScene(newScene);
+                    }catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
             }
-        }.start();
+        };
+        animationTimer.start();
     }
 
     public void updateoverview() {
@@ -159,7 +172,7 @@ public class GameController {
     }
 
     //Hier werden die Keyevents hinzugefügt
-    public void addKeyInput(Scene scene) {
+    public void addKeyInput(Scene scene, AnimationTimer animationTimer) {
         scene.setOnKeyPressed((event) -> {
             //Nach Rechts bewegen
             if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.D) {
@@ -175,6 +188,7 @@ public class GameController {
             }
             if (event.getCode() == KeyCode.ESCAPE) {
                 try {
+                    animationTimer.stop();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/Mainmenu/MainMenu.fxml"));
                     Stage stage = (Stage) scene.getWindow();
                     Scene newScene = new Scene(loader.load());
